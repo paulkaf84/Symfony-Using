@@ -1,0 +1,5 @@
+{% macro alert(message, type, value) %}
+<div class="alert alert-{{ type }}">
+    {{ message ~ " :: " ~ value }}
+</div>
+{% endmacro %}

@@ -1,8 +1,15 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/styles/app.css">
+{% endblock %}
 {% block body %}
-Hello{{name}}
+{% set value = 10.75789 %}
+
+{{ value | price(3) }}
+
+
+{% import "macros/firstMacro.html.twig" as firstM %}
+
+{{ firstM.alert("Hey guy, this is your value", 'warnig', value) }}
+{{ firstM.alert("hello guy, this is your price", 'warnig', value|price(3))}}
+{{ dump(value) }}
 {% endblock %}
-
-{% block title %}
-
-{% endblock %}
-
