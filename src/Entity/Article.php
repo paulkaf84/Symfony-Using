@@ -3,9 +3,15 @@
 namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Entity]
 class Article
 {
+    #[ORM\Column(type: "integer")]
+    #[ORM\GeneratedValue(strategy: "AUTO")]
+    #[ORM\Id]
+    private int $id;
     /**
      * @Assert\Length(
      *     min=10,
@@ -14,12 +20,17 @@ class Article
      *     maxMessage="too long"
      * )
      */
-    private $author;
-    private $content;
-    private $title;
+    #[ORM\Column(type: "string")]
+    private string $author;
+
+    #[ORM\Column(type: "string")]
+    private string $content;
+
+    #[ORM\Column(type: "string")]
+    private string $title;
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAuthor()
     {
