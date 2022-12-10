@@ -14,8 +14,8 @@ class Article
     private int $id;
     /**
      * @Assert\Length(
-     *     min=10,
-     *     max=70,
+     *     min=3,
+     *     max=20,
      *     minMessage="too short",
      *     maxMessage="too long"
      * )

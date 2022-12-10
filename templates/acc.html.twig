@@ -1,15 +1,16 @@
 {% block stylesheet %}
-    <link rel="stylesheet" href="assets/styles/app.css">
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
 {% endblock %}
-{% block body %}
-{% set value = 10.75789 %}
+<body class="bg-gradient-to-r from-blue-50 to-amber-50 font-sans">
+    <div class="space-y">
+        {% set value = 10.75789 %}
 
-{{ value | price(3) }}
+        <p>{{ value | price(3) }}</p>
 
 
-{% import "macros/firstMacro.html.twig" as firstM %}
+        {% import "macros/firstMacro.html.twig" as firstM %}
 
-{{ firstM.alert("Hey guy, this is your value", 'warnig', value) }}
-{{ firstM.alert("hello guy, this is your price", 'warnig', value|price(3))}}
-{{ dump(value) }}
-{% endblock %}
+        <p>{{ firstM.alert("Hey guy, this is your value", 'warnig', value) }}</p>
+        <p>{{ firstM.alert("hello guy, this is your price", 'warnig', value|price(3))}}</p>
+    </div>
+</body>
